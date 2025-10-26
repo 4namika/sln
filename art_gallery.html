@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Gallery</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body { scroll-behavior: smooth; }
+.page { display: none; padding: 30px; }
+.active-page { display: block; }
+.card img{ height:200px; object-fit:cover; }
+</style>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid">
+<a class="navbar-brand" href="#" onclick="showPage('home')">Art Gallery</a>
+<div>
+<button class="btn btn-outline-light me-2" onclick="showPage('login')">Login</button>
+<button class="btn btn-outline-light" onclick="showPage('signup')">Sign Up</button>
+</div>
+</div>
+</nav>
+
+<div id="home" class="page active-page">
+<h1 class="text-center mb-4">Welcome to the Art Gallery</h1>
+<p class="text-center">Explore famous artworks and their stories.</p>
+<button class="btn btn-primary d-block mx-auto" onclick="showPage('gallery')">Enter Gallery</button>
+</div>
+
+<div id="login" class="page">
+<h2>Login</h2>
+<form>
+<div class="mb-3"><input type="text" class="form-control" placeholder="Username"></div>
+<div class="mb-3"><input type="password" class="form-control" placeholder="Password"></div>
+<button class="btn btn-dark">Login</button>
+</form>
+</div>
+
+<div id="signup" class="page">
+<h2>Sign Up</h2>
+<form>
+<div class="mb-3"><input type="text" class="form-control" placeholder="Name"></div>
+<div class="mb-3"><input type="email" class="form-control" placeholder="Email"></div>
+<div class="mb-3"><input type="password" class="form-control" placeholder="Password"></div>
+<button class="btn btn-success">Create Account</button>
+</form>
+</div>
+
+<div id="gallery" class="page">
+<h2 class="mb-4">Art Collection</h2>
+<div class="row g-4">
+<!-- Example Art Listing -->
+<div class="col-md-4">
+<div class="card" onclick="showPage('art1')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg" class="card-img-top">
+<div class="card-body"><h5 class="card-title">Mona Lisa</h5><p class="card-text">Leonardo da Vinci</p></div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card" onclick="showPage('art2')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/The_Scream.jpg" class="card-img-top">
+<div class="card-body"><h5 class="card-title">The Scream</h5><p class="card-text">Edvard Munch</p></div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card" onclick="showPage('art3')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Starry_Night_Over_the_Rhone.jpg" class="card-img-top">
+<div class="card-body"><h5 class="card-title">Starry Night</h5><p class="card-text">Vincent van Gogh</p></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Individual Art Pages -->
+<div id="art1" class="page">
+<h2>Mona Lisa</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg" class="img-fluid mb-3" style="max-width:300px;">
+<p><b>Artist:</b> Leonardo da Vinci<br><b>Year:</b> 1503</p>
+<p>A famous portrait known for its mysterious expression.</p>
+<button class="btn btn-secondary" onclick="showPage('gallery')">Back</button>
+</div>
+
+<div id="art2" class="page">
+<h2>The Scream</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/The_Scream.jpg" class="img-fluid mb-3" style="max-width:300px;">
+<p><b>Artist:</b> Edvard Munch<br><b>Year:</b> 1893</p>
+<p>Represents anxiety and human emotion.</p>
+<button class="btn btn-secondary" onclick="showPage('gallery')">Back</button>
+</div>
+
+<div id="art3" class="page">
+<h2>Starry Night</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Starry_Night_Over_the_Rhone.jpg" class="img-fluid mb-3" style="max-width:300px;">
+<p><b>Artist:</b> Vincent van Gogh<br><b>Year:</b> 1888</p>
+<p>An iconic depiction of a star-filled sky.</p>
+<button class="btn btn-secondary" onclick="showPage('gallery')">Back</button>
+</div>
+
+<script>
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active-page'));
+document.getElementById(id).classList.add('active-page');
+}
+</script>
+
+</body>
+</html>
